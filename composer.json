@@ -1,0 +1,26 @@
+{
+    "name": "simp/multiform",
+    "description": "This is php library for build multi steps forms from assoc array",
+    "type": "library",
+    "require-dev": {
+        "symfony/var-dumper": "^8.1",
+        "phpunit/phpunit": "^13.4",
+        "rector/rector": "^2.8"
+    },
+    "scripts": {
+        "rector": "rector process",
+        "rector:check": "rector process --dry-run"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Simp\\Multiform\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chance Nyasulu",
+            "email": "nyasuluchance6@gmail.com"
+        }
+    ]
+}
