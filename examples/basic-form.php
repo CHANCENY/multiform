@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+
+
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 use Simp\Multiform\lib\field\Email;
@@ -33,6 +36,13 @@ $name->setHtmlId('name');
 $name->setRequired(true);
 $name->setValue($state->getValue('text', ''));
 
+$name1 = new Text();
+$name1->setLabel('Title');
+$name1->setHtmlId('Title');
+$name1->setName('title');
+$name1->setRequired(true);
+$name1->setValue($state->getValue('title', ''));
+
 $email = new Email();
 $email->setLabel('Email');
 $email->setHtmlId('email');
@@ -50,6 +60,7 @@ $send->setValue('Send message');
 
 $form = new Form();
 $form->setMethod('post');
+$form->addField($name1);
 $form->addField($name);
 $form->addField($email);
 $form->addField($message);

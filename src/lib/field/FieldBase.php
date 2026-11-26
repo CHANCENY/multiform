@@ -50,6 +50,7 @@ abstract class FieldBase implements FieldTypeInterface
     protected $list = [];
     protected $events = [];
     protected $attributes = [];
+    protected $name;
 
     /**
      * Gets the configured HTML element.
@@ -138,7 +139,7 @@ abstract class FieldBase implements FieldTypeInterface
      */
     public function getName()
     {
-        return strtolower((new ReflectionClass($this))->getShortName());
+        return $this->name ?? strtolower((new ReflectionClass($this))->getShortName());
     }
 
     /**
@@ -193,6 +194,18 @@ abstract class FieldBase implements FieldTypeInterface
     public function setLabel($label)
     {
         $this->label = $label;
+    }
+
+    /**
+     * Sets the field name.
+     *
+     * @param string $name The name to assign.
+     *
+     * @return void
+     */
+    public function setName($name) 
+    {
+        $this->name = $name;
     }
 
     /**
